@@ -157,6 +157,10 @@ export class Images360 extends EventDispatcher{
 
 		this.focusedImage = image360;
 
+		for(let pointcloud of this.viewer.scene.pointclouds){
+			pointcloud.visible = false;
+		}
+
 		this.elUnfocus.style.display = "";
 	}
 
@@ -173,6 +177,9 @@ export class Images360 extends EventDispatcher{
 			return;
 		}
 
+		for(let pointcloud of this.viewer.scene.pointclouds){
+			pointcloud.visible = true;
+		}
 
 		this.sphere.material.map = null;
 		this.sphere.material.needsUpdate = true;

@@ -636,8 +636,10 @@ export class Sidebar{
 
 			images.addEventListener("visibility_changed", () => {
 				if(images.visible){
+					images.selectingEnabled = true;
 					tree.jstree('check_node', node);
 				}else{
+					images.selectingEnabled = false;
 					tree.jstree('uncheck_node', node);
 				}
 			});
